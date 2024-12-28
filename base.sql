@@ -4,15 +4,15 @@ CREATE DATABASE IF NOT EXISTS `La Tech`;
 -- Sélection de la base de données 'La Tech'
 USE `La Tech`;
 -- Création de la table des produits
-CREATE TABLE produit (
+CREATE TABLE produits (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     categorie VARCHAR(255) NOT NULL,
     prix DECIMAL(10, 2) NOT NULL
 );
 
--- Insertion de 100 produits informatiques
-INSERT INTO produit (nom, categorie, prix) VALUES
+-- Insertion de produits informatiques
+INSERT INTO produits (nom, categorie, prix) VALUES
 ('Ordinateur Portable Dell XPS 13', 'Ordinateur', 1399.99),
 ('MacBook Air M1', 'Ordinateur', 999.99),
 ('HP Pavilion Gaming Laptop', 'Ordinateur', 849.99),
@@ -87,7 +87,7 @@ INSERT INTO produit (nom, categorie, prix) VALUES
 ('Support Moniteur Amazon Basics', 'Accessoire', 25.99);
 
 -- Création de la table des clients
-CREATE TABLE client (
+CREATE TABLE clients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE client (
 );
 
 -- Insertion de 20 clients en Île-de-France
-INSERT INTO client (nom, prenom, date_naissance, code_postal, ville, date_achat) VALUES
+INSERT INTO clients (nom, prenom, date_naissance, code_postal, ville, date_achat) VALUES
 ('DUPONT', 'Jean', '1980-05-12', '75001', 'Paris', '2024-01-15'),
 ('MARTIN', 'Marie', '1992-08-19', '92000', 'Nanterre', '2024-01-18'),
 ('DURAND', 'Paul', '1985-11-23', '94000', 'Créteil', '2024-01-20'),
