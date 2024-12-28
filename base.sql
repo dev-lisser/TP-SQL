@@ -1,8 +1,8 @@
 -- Création de la base de données 'La Tech'
-CREATE DATABASE IF NOT EXISTS `La Tech`;
+CREATE DATABASE IF NOT EXISTS La_Tech;
 
 -- Sélection de la base de données 'La Tech'
-USE `La Tech`;
+USE La_Tech;
 -- Création de la table des produits
 CREATE TABLE produits (
     id INT AUTO_INCREMENT PRIMARY KEY,
