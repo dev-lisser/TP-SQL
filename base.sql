@@ -11,7 +11,7 @@ CREATE TABLE produits (
     prix DECIMAL(10, 2) NOT NULL
 );
 
--- Insertion de produits informatiques
+-- Insertion de 100 produits informatiques
 INSERT INTO produits (nom, categorie, prix) VALUES
 ('Ordinateur Portable Dell XPS 13', 'Ordinateur', 1399.99),
 ('MacBook Air M1', 'Ordinateur', 999.99),
@@ -119,3 +119,49 @@ INSERT INTO clients (nom, prenom, date_naissance, code_postal, ville, date_achat
 ('ROBERT', 'Julie', '1987-12-30', '75010', 'Paris', '2024-02-21'),
 ('SIMON', 'Axel', '1990-03-20', '92050', 'Levallois-Perret', '2024-02-23'),
 ('BONNET', 'Camille', '1996-05-18', '94080', 'Ivry-sur-Seine', '2024-02-25');
+
+-- Création de la table des commandes
+CREATE TABLE commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT NOT NULL,
+    date_commande DATE NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id),
+    FOREIGN KEY (produit_id) REFERENCES produits(id)
+);
+
+-- Insertion de 10 commandes
+INSERT INTO commandes (client_id, produit_id, quantite, date_commande, total) VALUES
+(1, 1, 1, '2024-01-16', 1399.99),
+(2, 2, 1, '2024-01-19', 999.99),
+(3, 5, 2, '2024-01-21', 399.98),
+(4, 8, 1, '2024-01-23', 149.99),
+(5, 10, 1, '2024-01-26', 379.99),
+(6, 15, 1, '2024-01-29', 119.99),
+(7, 20, 1, '2024-01-31', 399.99),
+(8, 25, 1, '2024-02-02', 109.99),
+(9, 30, 2, '2024-02-04', 999.98),
+(10, 40, 1, '2024-02-06', 469.99);
+
+-- Création de la table des achats
+CREATE TABLE achats (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    client_id INT,                             
+    produit_id INT,                            
+    date_achat DATE,                           
+    FOREIGN KEY (client_id) REFERENCES clients(id),  
+    FOREIGN KEY (produit_id) REFERENCES produits(id) 
+);
+INSERT INTO achats (client_id, produit_id, date_achat) VALUES
+(1, 1, '2024-01-16'),
+(2, 2, '2024-01-19'),
+(3, 5, '2024-01-21'),
+(4, 8, '2024-01-23'),
+(5, 10, '2024-01-26'),
+(6, 15, '2024-01-29'),
+(7, 20, '2024-01-31'),
+(8, 25, '2024-02-02'),
+(9, 30, '2024-02-04'),
+(10, 40, '2024-02-06');
